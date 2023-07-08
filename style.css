@@ -1,0 +1,244 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  line-height: 140%;
+}
+:root {
+  --purple: #8284fa;
+  --purple-dark: #5e60ce;
+  --blue: #4ea8de;
+  --blue-dark: #1e6f9f;
+  --grey-700: #0d0d0d;
+  --grey-600: #1a1a1a;
+  --grey-500: #262626;
+  --grey-400: #333333;
+  --grey-300: #808080;
+  --grey-200: #d9d9d9;
+  --grey-100: #f2f2f2;
+  --danger: #e25858;
+  --font-small: 12px;
+  --font-medium: 14px;
+  --font-large: 16px;
+}
+body {
+  background-color: var(--grey-600);
+  color: var(--grey-100);
+}
+header {
+  height: 200px;
+  background-color: var(--grey-700);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+header h2 {
+  font-size: 40px;
+}
+header h2 span:first-child {
+  color: var(--blue);
+}
+header h2 span:last-child {
+  color: var(--purple-dark);
+}
+main {
+  position: relative;
+}
+main .container {
+  position: absolute;
+  top: -25px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 64px;
+  padding: 0 20vw;
+}
+.addTodoField {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 8px;
+}
+.addTodoField input {
+  height: 50px;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  background-color: var(--grey-500);
+  border: 1px solid var(--grey-500);
+  padding: 16px;
+  font-size: var(--font-large);
+  font-weight: 400;
+  color: var(--grey-100);
+}
+.addTodoField input:focus {
+  border: 1px solid var(--purple-dark);
+}
+.addTodoField button {
+  padding: 16px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: var(--blue-dark);
+  border-radius: 8px;
+  border: none;
+  color: var(--grey-100);
+  font-size: var(--font-medium);
+  font-weight: 600;
+}
+.addTodoField button:hover {
+  background-color: var(--blue);
+}
+.box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 24px;
+}
+.info {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.info div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.info div p {
+  font-size: var(--font-medium);
+  font-weight: 600;
+}
+.info .count p {
+  color: var(--blue);
+}
+.info .completedTodos p {
+  color: var(--purple);
+}
+.info div span {
+  background-color: var(--grey-400);
+  color: var(--grey-200);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: var(--font-small);
+  font-weight: 600;
+}
+.empty {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  border-top: 1px solid var(--grey-400);
+  border-radius: 8px;
+  padding: 64px 24px;
+}
+.empty .content {
+  text-align: center;
+}
+.empty .content p {
+  font-size: var(--font-large);
+  color: var(--grey-300);
+}
+.empty .content p:first-child {
+  font-weight: 600;
+}
+.empty .content p:last-child {
+  font-weight: 400;
+}
+.todos {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 12px;
+}
+.todo {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  gap: 12px;
+  width: 100%;
+  padding: 16px;
+  background-color: var(--grey-500);
+  border-radius: 8px;
+}
+.todo .checkbox {
+  height: 24px;
+  width: 24px;
+  padding: 2px;
+  display: grid;
+  place-content: center;
+}
+.todo .checkbox span {
+  height: 15px;
+  width: 15px;
+  border: 2px solid var(--blue);
+  border-radius: 15px;
+  display: grid;
+  place-content: center;
+}
+.completed .checkbox span {
+  background-color: var(--purple-dark);
+  border: 2px solid var(--purple-dark);
+}
+.todo .checkbox span:hover {
+  border: 2px solid var(--blue-dark);
+}
+.todo .checkbox span img {
+  display: none;
+}
+.completed .checkbox span:hover {
+  background-color: var(--purple);
+  border: 2px solid var(--purple);
+}
+.completed .checkbox span img {
+  display: block;
+}
+.todo p {
+  width: 100%;
+  font-size: var(--font-medium);
+  color: var(--grey-100);
+  word-wrap: initial;
+}
+.completed p {
+  font-size: var(--font-medium);
+  color: var(--grey-300);
+  text-decoration: line-through;
+}
+.todo button {
+  background-color: transparent;
+  border: none;
+  display: grid;
+  place-content: center;
+  border-radius: 4px;
+  height: 24px;
+  width: 24px;
+}
+.todo button:hover {
+  background-color: var(--grey-400);
+}
+.todo button:hover img {
+  /* ! Danger Color */
+  filter: invert(45%) sepia(21%) saturate(2354%) hue-rotate(319deg)
+    brightness(97%) contrast(83%);
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- !Font Link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- !Css Link -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <img src="./images/rocket.svg" alt="" />
+      <h2><span>to</span><span>do</span></h2>
+    </header>
+    <main>
+      <div class="container">
+        <div class="addTodoField">
+          <input type="text" placeholder="Enter task" />
+          <button id="addTodo">
+            add <img src="./images/plus.svg" alt="" />
+          </button>
+        </div>
+        <div class="box">
+          <!-- ! Info -->
+          <div class="info">
+            <div class="count">
+              <p>Task count</p>
+              <span id="todoCount">0</span>
+            </div>
+            <div class="completedTodos">
+              <p>Completed</p>
+              <span id="completedTodoCount">0</span>
+            </div>
+          </div>
+          <!-- ! Todos -->
+          <div class="todos" id="todosContainer"></div>
+          <!-- ! Empty Case -->
+          <div class="empty">
+            <img src="./images/Clipboard.png" alt="" />
+            <div class="content">
+              <p>You don't have tasks added yet</p>
+              <p>Create tasks and organize your to-do items</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./main.js"></script>
+  </body>
+</html>
