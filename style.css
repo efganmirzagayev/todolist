@@ -141,7 +141,7 @@ main .container {
   font-weight: 600;
 }
 .empty {
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -166,7 +166,7 @@ main .container {
 }
 .todos {
   width: 100%;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   justify-content: start;

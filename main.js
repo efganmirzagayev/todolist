@@ -1,6 +1,9 @@
 let todoInput = document.querySelector("input");
 let addTodoButton = document.getElementById("addTodo");
 let todosContainer = document.getElementById("todosContainer");
+let emptyContainer = document.getElementById("emptyContainer");
+let todoCountTag = document.getElementById("todoCount");
+let completedTodoCountTag = document.getElementById("completedTodoCount");
 let todos = [];
 
 addTodoButton.addEventListener("click", addTodo);
@@ -9,10 +12,20 @@ todoInput.addEventListener("keypress", (event) => {
 });
 
 function addTodo() {
-  let todo = { completed: false, text: todoInput.value, id: Date.now() };
-  todoInput.value = null;
-  todos.push(todo);
-  createTodoElement(todo);
+  if (todoInput.value.trim().length !== 0) {
+    let todo = {
+      completed: false,
+      text: todoInput.value.trim(),
+      id: Date.now(),
+    };
+    console.log(todo.text);
+    todoInput.value = null;
+    todos.push(todo);
+    createTodoElement(todo);
+    setTodoCount();
+    setCompletedTodoCount();
+    checkEmpty();
+  }
 }
 
 function createTodoElement(todoObj) {
@@ -32,7 +45,7 @@ function createTodoElement(todoObj) {
       }
       return todo;
     });
-    console.log(todos);
+    setCompletedTodoCount();
   });
 
   //! Create Todo Checkbox
@@ -57,6 +70,9 @@ function createTodoElement(todoObj) {
   removeButton.addEventListener("click", () => {
     removeButton.parentElement.remove();
     todos = todos.filter((el) => el.id !== todoObj.id);
+    setTodoCount();
+    setCompletedTodoCount();
+    checkEmpty();
   });
 
   let removeButtonSvg = document.createElement("img");
@@ -66,4 +82,30 @@ function createTodoElement(todoObj) {
   todoTag.append(removeButton);
 
   todosContainer.append(todoTag);
+}
+
+//! Set Todo Count
+function setTodoCount() {
+  todoCountTag.innerText = todos.length;
+}
+
+//! Set Completed Todo Count
+function setCompletedTodoCount() {
+  let todoCount = todos.length;
+  let completedTodoCount = todos.filter((el) => el.completed).length;
+  if (todoCount === completedTodoCount) {
+    completedTodoCountTag.innerText = todoCount;
+  } else {
+    completedTodoCountTag.innerText = `${completedTodoCount} in ${todoCount}`;
+  }
+}
+
+function checkEmpty() {
+  if (todos.length === 0) {
+    emptyContainer.style.display = "flex";
+    todosContainer.style.display = "none";
+  } else {
+    emptyContainer.style.display = "none";
+    todosContainer.style.display = "flex";
+  }
 }
